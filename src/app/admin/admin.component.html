@@ -1,0 +1,59 @@
+<div *ngIf="products?.length">
+  <div class="row">
+    <div class="col-6 d-flex align-items-center">
+      <h2 class="mb-0"><strong>All products</strong></h2>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <button mat-flat-button color="primary" (click)="openProductDialog()">
+        Add new
+      </button>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <mat-card>
+        <mat-card-content class="p-0">
+          <div *ngFor="let product of products; let i = index">
+            <div class="px-1 px-md-3">
+              <div class="row d-flex align-items-center">
+                <div class="col-11">
+                  <app-product [product]="product"></app-product>
+                </div>
+                <div class="col-1 d-flex justify-content-end">
+                  <button
+                    mat-icon-button
+                    aria-label="product options"
+                    [matMenuTriggerFor]="productOptions"
+                  >
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #productOptions="matMenu">
+                    <button mat-menu-item (click)="openProductDialog(product)">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit product</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteProduct(product.id)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete product</span>
+                    </button>
+                  </mat-menu>
+                </div>
+              </div>
+            </div>
+            <mat-divider *ngIf="i < products.length - 1"></mat-divider>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="canLoadMore">
+    <div class="col d-flex justify-content-center">
+      <button mat-button class="my-4" (click)="loadMoreProducts()">
+        <span>Load more</span>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

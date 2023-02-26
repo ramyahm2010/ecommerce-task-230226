@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* MATERIAL OVERWRITE */
+.mdc-snackbar__label {
+  padding: 3px 8px !important;
+}
+
+.mdc-snackbar__surface {
+  padding: 0 !important;
+}
+
+.categoryPanelClass {
+  margin-top: -22px !important;
+}

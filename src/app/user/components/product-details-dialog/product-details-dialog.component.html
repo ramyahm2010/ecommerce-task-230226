@@ -1,0 +1,14 @@
+<h2 mat-dialog-title class="mb-0">Product details</h2>
+
+<mat-dialog-content class="mat-typography">
+  <div class="row" *ngIf="product?.id">
+    <div class="col-12 col-md-4 productImage">
+      <img [src]="product.image" alt="" />
+    </div>
+    <div class="col-12 col-md-8">
+      <h2 class="mb-1">{{ product.title }}</h2>
+      <h3>{{ product.category }}</h3>
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,38 @@
+<mat-card *ngIf="product?.id" class="product-card">
+  <mat-card-header>
+    <mat-card-title>{{ product?.title }}</mat-card-title>
+    <mat-card-subtitle (click)="goToSingleCategory(product?.category!)">
+      <div class="row">
+        <div class="col-12 d-flex align-items-center pointer">
+          <mat-icon>folder_open</mat-icon
+          ><span class="mx-2">{{ product?.category }}</span>
+        </div>
+      </div></mat-card-subtitle
+    >
+  </mat-card-header>
+  <div
+    class="px-1 py-2 d-flex justify-content-center my-2"
+    (click)="openProductDetails(product!)"
+  >
+    <img
+      mat-card-image
+      [src]="product?.image"
+      [alt]="product?.title"
+      class="pointer"
+    />
+  </div>
+  <mat-card-content>
+    <p>
+      {{ product?.description }}
+    </p>
+  </mat-card-content>
+  <div class="p-3">
+    <div class="row">
+      <div class="col">
+        <button mat-button class="w-100" (click)="openProductDetails(product!)">
+          SHOW DETAILS
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>

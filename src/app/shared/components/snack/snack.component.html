@@ -1,0 +1,17 @@
+<div class="row g-0">
+  <div class="col-1 d-flex align-items-center">
+    <mat-icon [style.color]="_data?.icon_color">
+      {{ _data?.icon }}
+    </mat-icon>
+  </div>
+  <div class="col-9 d-flex align-items-center">
+    <span class="px-2">{{ _data?.message }}</span>
+  </div>
+  <div class="col-2 d-flex align-items-center pa-0 justify-content-end">
+    <span matSnackBarActions
+      ><button mat-icon-button (click)="_snackBarRef.dismiss()">
+        <mat-icon>{{ _data?.action_icon }}</mat-icon>
+      </button></span
+    >
+  </div>
+</div>
